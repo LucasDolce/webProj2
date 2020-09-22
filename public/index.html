@@ -1,43 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>GitHub</title>
   </head>
+
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <header>
+      <div class="container">
+        <div class="logo">
+          <img href="" src="images/logo-git.svg" class="logo-icon" />
+        </div>
+        <div class="header-inner">
+          <ul class="menu">
+            <li class="menu-item">
+              Porque GitHub?
+              <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </li>
+            <li class="menu-item">Empresa</li>
+            <li class="menu-item">
+              Explore
+              <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </li>
+            <li class="menu-item">Mercado</li>
+            <li class="menu-item">
+              Preço
+              <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </li>
+          </ul>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+          <div class="right-side">
+            <div class="search">
+              <form class="search-form">
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Procurar no GitHub"
+                />
+              </form>
+            </div>
+            <a href="" class="button signin">Entrar</a>
+            <a href="" class="button border">Sair</a>
+            <div class="hidden-menu"></div>
+          </div>
+        </div>
+      </div>
+    </header>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <div class="article">
+      <div class="descricao">
+        <h1>
+          Feito por desenvolvedores
+        </h1>
+        <p>
+          O GitHub é uma plataforma de desenvolvimento inspirada na maneira como
+          você trabalha. De
+          <a href="">código aberto</a>
+          aos
+          <a href="">negócios</a>
+          , você pode hospedar e revisar códigos, gerenciar projetos e criar
+          software junto a 50 milhões de desenvolvedores.
+        </p>
+      </div>
+      <div class="login">
+        <form>
+          <div class="telaLogin">
+            <div class="rotulo">
+              <label>Usuário</label>
+            </div>
+            <div class="texto">
+              <input type="text" />
+            </div>
+            <div class="rotulo">
+              <label>Email</label>
+            </div>
+            <div class="texto">
+              <input type="text" />
+            </div>
+            <div class="rotulo">
+              <label>Senha</label>
+            </div>
+            <div class="texto">
+              <input type="password" />
+            </div>
+            <p class="regras">
+              Verifique se há pelo menos 15 caracteres OU pelo menos 8
+              caracteres, incluindo um número e uma letra minúscula.
+              <a href="">Saber mais.</a>.
+            </p>
+
+            <input
+              class="button2"
+              type="submit"
+              value="Inscreva-se no Github"
+            />
+            <p class="regras termos">
+              Ao clicar em "Inscreva-se no GitHub", você concorda com nossos
+              <a href="">Termos de Serviço</a>
+              e
+              <a href="">Política de Privacidade</a>. Ocasionalmente, enviaremos
+              e-mails relacionados à sua conta.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
