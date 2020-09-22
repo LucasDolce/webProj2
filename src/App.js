@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "./Header";
-import Article from "./Article";
-import Head from "./Head";
+import Header from "./views/Header";
+import Article from "./views/Article";
+import Head from "./views/Head";
 import axios from "axios";
 import "./App.css";
 import express from "express";
