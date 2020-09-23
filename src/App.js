@@ -4,8 +4,8 @@ import Article from "./views/Article";
 import Head from "./views/Head";
 import axios from "axios";
 import "./style.css";
-import express from "express";
-import routes from "./routes";
+//import express from "express";
+//import routes from "./routes";
 
 const api = {
   baseUrl: "https://api.github.com/",
@@ -20,13 +20,13 @@ class App extends React.Component {
       githubData: [],
     };
 
-    this.server = express();
-    this.routes();
+    // this.server = express();
+    // this.routes();
   }
 
-  routes() {
-    this.server.use(routes);
-  }
+  // routes() {
+  //   this.server.use(routes);
+  // }
 
   componentDidMount() {
     axios
