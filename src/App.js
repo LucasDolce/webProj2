@@ -3,7 +3,7 @@ import Header from "./views/Header";
 import Article from "./views/Article";
 import Head from "./views/Head";
 import axios from "axios";
-import "./App.css";
+import "./style.css";
 import express from "express";
 import routes from "./routes";
 
