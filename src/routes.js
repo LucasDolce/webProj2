@@ -1,10 +1,12 @@
-import { Router } from "express";
-import UserController from "./controllers/UserController";
-import SessionController from "./controllers/SessionController";
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-const routes = new Router();
+import App from "./App";
 
-routes.post("/users", UserController.store);
-routes.post("/sessions", SessionController.store);
-
-export default routes;
+export default (props) => (
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" exect={true} component={App}></Route>
+    </Switch>
+  </BrowserRouter>
+);
