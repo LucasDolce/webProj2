@@ -6,7 +6,9 @@ import App from "./App";
 export default (props) => (
   <BrowserRouter>
     <Switch>
-      <Route path="/" exect={true} component={App}></Route>
+      <Route path="/" exact={true} component={App}>
+        {console.log("entrou")}
+      </Route>
     </Switch>
   </BrowserRouter>
 );
