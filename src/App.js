@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import axios from "axios";
 import "./style.css";
 import Article from "./views/Article";
@@ -38,12 +38,11 @@ class App extends React.Component {
     // }
   }
 
-  store = () => {
-    console.log("passou");
+  onSubmit(values) {
+    console.log(values);
     const apiUrl = "http://localhost:3333";
-    const request = axios.post(`${apiUrl}/src/api/routes/users`);
-    return request;
-  };
+    axios.post(`${apiUrl}/users`, values);
+  }
 
   render() {
     return (
@@ -63,7 +62,7 @@ class App extends React.Component {
               </p>
             </div>
             <div class="login">
-              <form>
+              <form onSubmit={this.onSubmit()}>
                 <div class="telaLogin">
                   <div class="rotulo">
                     <label>Usuário</label>
@@ -93,7 +92,6 @@ class App extends React.Component {
                     class="button2"
                     type="submit"
                     value="Inscreva-se no Github"
-                    onClick={() => this.store()}
                   />
                   <p class="regras termos">
                     Ao clicar em "Inscreva-se no GitHub", você concorda com
