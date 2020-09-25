@@ -16,6 +16,7 @@ class Api {
 
     this.server.use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "*");
       this.server.use(cors());
       next();
     });

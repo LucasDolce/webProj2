@@ -1,9 +1,8 @@
 import React, { useCallback } from "react";
 import axios from "axios";
 import "./style.css";
-import Article from "./views/Article";
 import Header from "./views/Header";
-import Head from "./views/Head";
+import PropTypes from "prop-types";
 
 const api = {
   baseUrl: "https://api.github.com/",
@@ -38,13 +37,15 @@ class App extends React.Component {
     // }
   }
 
-  onSubmit(values) {
-    console.log(values);
-    const apiUrl = "http://localhost:3333";
-    axios.post(`${apiUrl}/users`, values);
-  }
+  // onSubmit(values) {
+  //   console.log("isso é values", values);
+  //   const apiUrl = "http://localhost:3333";
+  //   axios.post(`${apiUrl}/users`, values);
+  // }
 
   render() {
+    const { params } = this.props;
+    console.log("isso é params", params);
     return (
       <div>
         <Header />
@@ -62,25 +63,25 @@ class App extends React.Component {
               </p>
             </div>
             <div class="login">
-              <form onSubmit={this.onSubmit()}>
+              <form action={"http://localhost:3333/users"} method={"post"}>
                 <div class="telaLogin">
                   <div class="rotulo">
                     <label>Usuário</label>
                   </div>
                   <div class="texto">
-                    <input type="text" id="name" name="name" />
+                    <input type="text" name="name" />
                   </div>
                   <div class="rotulo">
                     <label>Email</label>
                   </div>
                   <div class="texto">
-                    <input type="text" id="email" name="email" />
+                    <input type="text" name="email" />
                   </div>
                   <div class="rotulo">
                     <label>Senha</label>
                   </div>
                   <div class="texto">
-                    <input type="password" id="password" name="password" />
+                    <input type="password" name="password" />
                   </div>
                   <p class="regras">
                     Verifique se há pelo menos 15 caracteres OU pelo menos 8
@@ -109,4 +110,8 @@ class App extends React.Component {
   }
 }
 
+App.propTypes = {
+  handleSubmit: PropTypes.func,
+  params: PropTypes.object,
+};
 export default App;

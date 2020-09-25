@@ -9,6 +9,8 @@ class UserController {
       password: Yup.string().required().min(6),
     });
 
+    console.log("valor req bod", req);
+
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: "falha ao validar" });
     }
