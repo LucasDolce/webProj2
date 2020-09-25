@@ -1,6 +1,7 @@
 import express from "express";
 import routes from "./routes";
 import cors from "cors";
+import bodyParser from "body-parser";
 
 import "./database";
 
@@ -13,6 +14,7 @@ class Api {
 
   middlewares() {
     this.server.use(express.json());
+    this.server.use(bodyParser());
 
     this.server.use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
