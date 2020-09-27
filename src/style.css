@@ -55,6 +55,16 @@ header {
   }
 }
 
+form.dark label,
+.dark {
+  color: white;
+}
+
+div.dark label,
+.dark {
+  color: white;
+}
+
 @media (max-width: 600px) {
   header {
     height: 32px;

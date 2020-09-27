@@ -36,7 +36,7 @@ class Header extends React.Component {
                   />
                 </form>
               </div>
-              <a href="" class="button signin">
+              <a href="/login" class="button signin">
                 Entrar
               </a>
               <a href="" class="button border">

@@ -3,6 +3,7 @@ import axios from "axios";
 import "./style.css";
 import Header from "./views/Header";
 import PropTypes from "prop-types";
+import { browserHistory } from "react-router";
 
 const api = {
   baseUrl: "https://api.github.com/",
@@ -49,7 +50,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <div id="root">
+        <div>
           <div class="article">
             <div class="descricao">
               <h1>Feito por desenvolvedores</h1>
@@ -93,6 +94,7 @@ class App extends React.Component {
                     class="button2"
                     type="submit"
                     value="Inscreva-se no Github"
+                    onClick={browserHistory.push("/login")}
                   />
                   <p class="regras termos">
                     Ao clicar em "Inscreva-se no GitHub", você concorda com
