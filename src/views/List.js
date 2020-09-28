@@ -38,7 +38,7 @@ class List extends React.Component {
     const { githubData } = this.state;
     return (
       <div>
-        <form class="dark" action={`/repo?name=${name}`}>
+        <form class="dark" action={`/repo`}>
           <label for="username">Abaixo temos os repositórios do github </label>
           <input type="text" name={"name"} />
           <input type="submit" value="Digite o repositorio desejado" />

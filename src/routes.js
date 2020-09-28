@@ -12,7 +12,7 @@ export default (props) => (
       <Route path="/" exact={true} component={App} />
       <Route path={"/login"} exact={true} component={Login} />
       <Route path={"/content"} exact={true} component={List} />
-      <Route path={"/repo(/:name)"} exact={true} component={Repo} />
+      <Route path={"/repo/:name"} component={Repo} />
     </Switch>
   </BrowserRouter>
 );

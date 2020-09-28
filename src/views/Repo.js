@@ -2,6 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
+const api = {
+  baseUrl: "https://api.github.com/",
+  client_id: "e7b2f308dd49602e3887",
+  client_secret: "3e5fafe97bd925f4b8e242f11622b80abf673a0a",
+};
+
 class repo extends React.Component {
   constructor() {
     super();
@@ -28,22 +34,20 @@ class repo extends React.Component {
       return err;
     }
   }
+
   render() {
     const { params } = this.props;
     const { githubData } = this.state;
-    {
-      console.log(params.name);
-    }
 
-    <div className="container app">
-      <div className="row">
-        {githubData.map((name) => (
-          <div className="col-md-12">
-            <p>{name.name === params.name ? name : "objeto não encontrado"}</p>
-          </div>
-        ))}
-      </div>
-    </div>;
+    // <div className="container app">
+    //   <div className="row">
+    //     {githubData.map((name) => (
+    //       <div className="col-md-12">
+    //         <p>{name.name === params.name ? name : ""}</p>
+    //       </div>
+    //     ))}
+    //   </div>
+    // </div>;
   }
 }
 
