@@ -2,14 +2,12 @@ import * as Yup from "yup";
 import User from "../models/User";
 
 class UserController {
-  async store(req, res) {
+  async store(req, res, next) {
     const schema = Yup.object().shape({
       name: Yup.string().required().min(3),
       email: Yup.string().required(),
       password: Yup.string().required().min(6),
     });
-
-    console.log("valor req bod", req);
 
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: "falha ao validar" });
@@ -23,12 +21,7 @@ class UserController {
 
     const { id, name, email, password } = await User.create(req.body);
 
-    return res.json({
-      id,
-      name,
-      email,
-      password,
-    });
+    return res.redirect("http://localhost:8080/login");
   }
 }
 

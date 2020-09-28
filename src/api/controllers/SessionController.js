@@ -28,17 +28,20 @@ class SessionController {
 
     const { id, name } = user;
 
-    return res.json({
-      user: {
-        id,
-        name,
-        email,
-      },
+    return (
+      // res.json({
+      //   user: {
+      //     id,
+      //     name,
+      //     email,
+      //   },
 
-      token: jwt.sign({ id }, authConfig.secret, {
-        expiresIn: authConfig.expiresIn,
-      }),
-    });
+      //   token: jwt.sign({ id }, authConfig.secret, {
+      //     expiresIn: authConfig.expiresIn,
+      //   }),
+      // }) &&
+      res.redirect("http://localhost:8080/content")
+    );
   }
 }
 

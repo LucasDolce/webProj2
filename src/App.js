@@ -94,7 +94,7 @@ class App extends React.Component {
                     class="button2"
                     type="submit"
                     value="Inscreva-se no Github"
-                    onClick={browserHistory.push("/login")}
+                    // onClick={browserHistory.push("/login")}
                   />
                   <p class="regras termos">
                     Ao clicar em "Inscreva-se no GitHub", você concorda com
