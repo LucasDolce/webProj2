@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 const api = {
   baseUrl: "https://api.github.com/",
@@ -34,8 +35,18 @@ class List extends React.Component {
   }
 
   render() {
-    const state = this.state.githubData;
-    return <div></div>;
+    const { githubData } = this.state;
+    return (
+      <div className="container app">
+        <div className="row">
+          {githubData.map((name) => (
+            <div className="col-md-12">
+              <p>{name.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   }
 }
 

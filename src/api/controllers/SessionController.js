@@ -1,5 +1,5 @@
-import * as Yup from "yup";
 import jwt from "jsonwebtoken";
+import * as Yup from "yup";
 
 import User from "../models/User";
 import authConfig from "../config/auth";
@@ -22,9 +22,9 @@ class SessionController {
       return res.status(401).json({ error: "Usuario nao pertence a base" });
     }
 
-    if (!(await user.checkPassword(password))) {
-      return res.status(401).json({ error: "Senha incorreta" });
-    }
+    // if (!(await user.checkPassword(password))) {
+    //   return res.status(401).json({ error: "Senha incorreta" });
+    // }
 
     const { id, name } = user;
 

@@ -5,7 +5,7 @@ class Login extends React.Component {
     return (
       <form
         class="dark"
-        action={"http://localhost:3333/sessions"}
+        action={"http://localhost:3333/sessions?email=testeb2&senha=testeb2"}
         method={"post"}
       >
         <label for="username">E-mail</label>
