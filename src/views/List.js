@@ -37,13 +37,20 @@ class List extends React.Component {
   render() {
     const { githubData } = this.state;
     return (
-      <div className="container app">
-        <div className="row">
-          {githubData.map((name) => (
-            <div className="col-md-12">
-              <p>{name.name}</p>
-            </div>
-          ))}
+      <div>
+        <form class="dark" action={`/repo?name=${name}`}>
+          <label for="username">Abaixo temos os repositórios do github </label>
+          <input type="text" name={"name"} />
+          <input type="submit" value="Digite o repositorio desejado" />
+        </form>
+        <div className="container app">
+          <div className="row">
+            {githubData.map((name) => (
+              <div className="col-md-12">
+                <p>{name.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
