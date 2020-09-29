@@ -14,6 +14,10 @@ class User extends Model {
       }
     );
   }
+
+  checkPassword(password) {
+    if (password === this.password) return true;
+  }
 }
 
 export default User;

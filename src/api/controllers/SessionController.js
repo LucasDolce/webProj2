@@ -22,25 +22,26 @@ class SessionController {
       return res.status(401).json({ error: "Usuario nao pertence a base" });
     }
 
-    // if (!(await user.checkPassword(password))) {
-    //   return res.status(401).json({ error: "Senha incorreta" });
-    // }
+    if (!(await user.checkPassword(password))) {
+      return res.status(401).json({ error: "Senha incorreta" });
+    }
 
     const { id, name } = user;
 
-    // res.json({
-    //   user: {
-    //     id,
-    //     name,
-    //     email,
-    //   },
+    return (
+      res.redirect("http://localhost:8080/content") &&
+      res.json({
+        user: {
+          id,
+          name,
+          email,
+        },
 
-    //   token: jwt.sign({ id }, authConfig.secret, {
-    //     expiresIn: authConfig.expiresIn,
-    //   }),
-    // });
-
-    return res.redirect("http://localhost:8080/content");
+        token: jwt.sign({ id }, authConfig.secret, {
+          expiresIn: authConfig.expiresIn,
+        }),
+      })
+    );
   }
 }
 

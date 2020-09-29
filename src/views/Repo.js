@@ -8,7 +8,7 @@ const api = {
   client_secret: "3e5fafe97bd925f4b8e242f11622b80abf673a0a",
 };
 
-class repo extends React.Component {
+class Repo extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -17,6 +17,7 @@ class repo extends React.Component {
   }
 
   componentDidMount() {
+    console.log("entrou");
     try {
       axios
         .get(
@@ -38,21 +39,22 @@ class repo extends React.Component {
   render() {
     const { params } = this.props;
     const { githubData } = this.state;
-
-    // <div className="container app">
-    //   <div className="row">
-    //     {githubData.map((name) => (
-    //       <div className="col-md-12">
-    //         <p>{name.name === params.name ? name : ""}</p>
-    //       </div>
-    //     ))}
-    //   </div>
-    // </div>;
+    return (
+      <div className="container app">
+        <div className="row">
+          {githubData.map((name) => (
+            <div className="col-md-12">
+              <p>{name.name === params.name ? name : ""}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   }
 }
 
-repo.propTypes = {
+Repo.propTypes = {
   params: PropTypes.object,
 };
 
-export default repo;
+export default Repo;
