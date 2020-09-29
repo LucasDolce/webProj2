@@ -17,7 +17,6 @@ class Repo extends React.Component {
   }
 
   componentDidMount() {
-    console.log("entrou");
     try {
       axios
         .get(
@@ -39,12 +38,20 @@ class Repo extends React.Component {
   render() {
     const { params } = this.props;
     const { githubData } = this.state;
+    console.log(
+      "rota funcionando apenas se digitado o link: http://localhost:8080/repo:(nomeDoRepo) {consertar}"
+    );
     return (
       <div className="container app">
+        <p>dados do repositorio selecionado</p>
         <div className="row">
           {githubData.map((name) => (
             <div className="col-md-12">
-              <p>{name.name === params.name ? name : ""}</p>
+              <p>
+                {`:${name.name}` === this.props.match.params.name
+                  ? `nome: ${name.name}, id: ${name.id}, Url: ${name.downloads_url}`
+                  : ``}
+              </p>
             </div>
           ))}
         </div>

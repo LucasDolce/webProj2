@@ -40,7 +40,7 @@ class List extends React.Component {
       <div>
         <form class="dark" action={`/repo`}>
           <label for="username">Abaixo temos os repositórios do github </label>
-          <input type="text" name={"name"} />
+          <input type="text" id={"name"} />
           <input type="submit" value="Digite o repositorio desejado" />
         </form>
         <div className="container app">
