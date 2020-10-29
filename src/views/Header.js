@@ -39,8 +39,8 @@ class Header extends React.Component {
               <a href="/login" class="button signin">
                 Entrar
               </a>
-              <a href="" class="button border">
-                Sair
+              <a href="/content" class="button border">
+                Search Public Api
               </a>
               <div class="hidden-menu"></div>
             </div>

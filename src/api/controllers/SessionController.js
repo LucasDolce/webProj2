@@ -28,20 +28,17 @@ class SessionController {
 
     const { id, name } = user;
 
-    return (
-      res.redirect("http://localhost:8080/content") &&
-      res.json({
-        user: {
-          id,
-          name,
-          email,
-        },
+    res.cookie("id", id);
 
-        token: jwt.sign({ id }, authConfig.secret, {
-          expiresIn: authConfig.expiresIn,
-        }),
-      })
-    );
+    console.log("this is cookie", res);
+
+    return res.redirect("http://localhost:8080/content");
+  }
+
+  async logout(req, res, next) {
+    res.clearCookie("id");
+    console.log(res);
+    next();
   }
 }
 
