@@ -3,6 +3,7 @@ import routes from "./routes";
 import cors from "cors";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import path from "path";
 
 import "./database";
 
@@ -17,6 +18,10 @@ class Api {
     this.server.use(express.json());
     this.server.use(cookieParser());
     this.server.use(bodyParser());
+    this.server.use(
+      "/files",
+      express.static(path.resolve(__dirname, "..", "tmp", "uploads"))
+    );
     // this.server.set("views", "../views");
 
     this.server.use((req, res, next) => {

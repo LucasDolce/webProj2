@@ -4,8 +4,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import App from "./App";
 import Login from "./views/Login";
 import List from "./views/List";
-import Repo from "./views/Repo";
 import Files from "./views/Files";
+import Repo from "./views/Repo";
 
 export default (props) => (
   <BrowserRouter>

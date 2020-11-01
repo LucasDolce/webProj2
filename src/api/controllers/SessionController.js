@@ -51,7 +51,7 @@ class SessionController {
 
   async login(req, res, next) {
     if (req.cookies && req.cookies.id) {
-      res.redirect("http://localhost:8080/content");
+      res.redirect("http://localhost:8080/files");
       return;
     }
     res.redirect("http://localhost:8080/login");
