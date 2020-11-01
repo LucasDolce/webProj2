@@ -27,18 +27,34 @@ class SessionController {
     }
 
     const { id, name } = user;
-
     res.cookie("id", id);
+    // console.log(res);
 
-    console.log("this is cookie", res);
+    // console.log("this is cookie", res);
 
-    return res.redirect("http://localhost:8080/content");
+    return res.redirect("http://localhost:8080/files");
   }
 
   async logout(req, res, next) {
     res.clearCookie("id");
-    console.log(res);
+    // console.log(res);
     next();
+  }
+
+  async getUser(req, res, next) {
+    console.log(req);
+    if (req.cookies && req.cookies.id) {
+      return User.findOne({ where: { id: req.cookies.id } });
+    }
+    next();
+  }
+
+  async login(req, res, next) {
+    if (req.cookies && req.cookies.id) {
+      res.redirect("http://localhost:8080/content");
+      return;
+    }
+    res.redirect("http://localhost:8080/login");
   }
 }
 

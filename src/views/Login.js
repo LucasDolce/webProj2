@@ -2,6 +2,19 @@ import React from "react";
 import { browserHistory } from "react-router";
 
 class Login extends React.Component {
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     user: {},
+  //   };
+  // }
+
+  // componentDidMount() {
+  //   Axios.get("http://localhost:3333/getUser").then((res) =>
+  //     this.setState({ user: res.data })
+  //   );
+  // }
+
   render() {
     return (
       <form

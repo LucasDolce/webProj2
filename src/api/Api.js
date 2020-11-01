@@ -17,6 +17,7 @@ class Api {
     this.server.use(express.json());
     this.server.use(cookieParser());
     this.server.use(bodyParser());
+    // this.server.set("views", "../views");
 
     this.server.use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
