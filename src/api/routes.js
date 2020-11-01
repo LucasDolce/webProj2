@@ -14,7 +14,7 @@ routes.post("/sessions", SessionController.store);
 routes.get("/getUser", SessionController.getUser);
 routes.get("/login", SessionController.login);
 routes.get("/logout", SessionController.logout);
-routes.post("/files", upload.single("file"), FileController.store);
+routes.post("/uploadFile", upload.single("file"), FileController.store);
 // routes.post("/upload", FileController.store);
 
 // routes.use(authMiddleware);
