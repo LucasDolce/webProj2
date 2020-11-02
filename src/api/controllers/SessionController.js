@@ -26,8 +26,9 @@ class SessionController {
       return res.status(401).json({ error: "Senha incorreta" });
     }
 
-    const { id, name } = user;
+    const { id, name, isAdm } = user;
     res.cookie("id", id);
+    res.cookie("isAdm", isAdm);
     // console.log(res);
 
     // console.log("this is cookie", res);
@@ -37,7 +38,8 @@ class SessionController {
 
   async logout(req, res, next) {
     res.clearCookie("id");
-    // console.log(res);
+
+    return res.redirect("http://localhost:8080/");
     next();
   }
 

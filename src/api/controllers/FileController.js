@@ -10,6 +10,16 @@ class FileController {
     });
     return res.json(file);
   }
+  async get(req, res) {
+    const { name } = req.query;
+
+    const file = await File.findOne({
+      where: {
+        name,
+      },
+    });
+    return file.path;
+  }
 }
 
 export default new FileController();
