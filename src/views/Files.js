@@ -1,47 +1,52 @@
 import Axios from "axios";
 import React from "react";
+import cookie from "react-cookies";
 
 class Files extends React.Component {
   constructor() {
     super();
     this.state = {
       User: {},
+      UserId: cookie.load("id"),
     };
   }
+
   componentDidMount() {
-    // let User = Axios.get("http://localhost:3333/getUser");
-    // console.log(User);
+    this.initialize();
   }
+
+  initialize = () => {
+    Axios.get("http://localhost:3333/getUser", {
+      params: {
+        id: this.state.UserId,
+      },
+    }).then((res) => this.setState({ User: res }));
+    console.log(this.state.UserId);
+    console.log(this.state.User);
+  };
 
   render() {
     return (
       <div>
         <form
           class="dark"
-          action={"http://localhost:3333/uploadFile"}
-          method={"post"}
+          action="http://localhost:3333/uploadFile"
+          method="post"
+          enctype="multipart/form-data"
         >
           <label>Usuario Adm -- cadastro de arquivos -- </label>
-          <label for="username">nome</label>
-          <input type="text" name="name" />
-          <input
-            type="file"
-            id="file"
-            name="file"
-            accept="image/png, image/jpeg"
-          />
-          <input type="submit" value="Salvar" />
+
+          <input type="file" name="file" accept="image/png, image/jpeg" />
+          <input type="submit" value="Salvar arquivo" />
         </form>
         <form
           class="dark"
           action={"http://localhost:3333/getFile"}
           method={"get"}
         >
-          <label> Listagem de arquivos -- </label>
+          <label> Busca de arquivos -- </label>
           <label for="username">nome</label>
           <input type="text" name="nome" />
-          <label for="password">file</label>
-          <input type="password" name="file" />
           <input type="submit" value="Buscar" />
         </form>
       </div>

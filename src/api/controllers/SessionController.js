@@ -41,12 +41,12 @@ class SessionController {
     next();
   }
 
-  async getUser(req, res, next) {
-    console.log(req);
-    if (req.cookies && req.cookies.id) {
-      return User.findOne({ where: { id: req.cookies.id } });
-    }
-    next();
+  async getUser(req, res) {
+    // console.log(userId);
+    console.log(req.query.id);
+    const { id } = req.query;
+
+    return await User.findOne({ where: { id } });
   }
 
   async login(req, res, next) {
