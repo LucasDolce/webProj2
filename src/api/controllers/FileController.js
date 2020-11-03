@@ -10,6 +10,7 @@ class FileController {
     });
     return res.json(file);
   }
+
   async get(req, res) {
     const { name } = req.query;
 
@@ -18,7 +19,8 @@ class FileController {
         name,
       },
     });
-    return file.path;
+
+    return res.json(file);
   }
 }
 

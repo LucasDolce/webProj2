@@ -31,17 +31,17 @@ class Files extends React.Component {
     console.log(this.state.User_isAdm);
   };
 
-  onSubmit = (values) => {
-    try {
-      Axios.get("http://localhost:3333/getFile", {
-        params: {
-          name: values.name,
-        },
-      }).then((res) => this.setState({ File: res.data }));
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // onSubmit = (values) => {
+  //   try {
+  //     Axios.get("http://localhost:3333/getFile", {
+  //       params: {
+  //         name: values.name,
+  //       },
+  //     }).then((res) => this.setState({ File: res.data }));
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   render() {
     return (
@@ -61,9 +61,9 @@ class Files extends React.Component {
         ) : null}
         <form
           class="dark"
-          // action={"http://localhost:3333/getFile"}
-          // method={"get"}
-          onSubmit={this.onSubmit.bind(this)}
+          action={"http://localhost:3333/getFile"}
+          method={"get"}
+          // onSubmit={this.onSubmit.bind(this)}
         >
           <label> Busca de arquivos -- </label>
           <label for="username">nome</label>
