@@ -7,7 +7,7 @@ class Files extends React.Component {
     super();
     this.state = {
       User: {},
-      File: {},
+      file: {},
       UserId: cookie.load("id"),
       User_isAdm: cookie.load("isAdm"),
     };
@@ -32,6 +32,7 @@ class Files extends React.Component {
   };
 
   // onSubmit = (values) => {
+  //   console.log(values);
   //   try {
   //     Axios.get("http://localhost:3333/getFile", {
   //       params: {
@@ -70,16 +71,17 @@ class Files extends React.Component {
           <input type="text" name="name" />
           <input type="submit" value="Buscar" />
         </form>
-        {this.state.file &&
-          file.map((file) => (
-            <div className="row">
-              <div className="col-md-12">
-                <p>
-                  {`nome: ${file.name}, id: ${file.id}, Path: ${file.path}`}
-                </p>
-              </div>
+        {this.state.file && (
+          <div className="row">
+            <div className="col-md-12">
+              <p>
+                {`nome: ${this.state.file.name}, 
+                id: ${this.state.file.id}, 
+                Path: ${this.state.file.path}`}
+              </p>
             </div>
-          ))}
+          </div>
+        )}
         <form
           class="dark"
           action={"http://localhost:3333/logout"}

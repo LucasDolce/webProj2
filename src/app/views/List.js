@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { browserHistory } from "react-router";
 
 const api = {
   baseUrl: "https://api.github.com/",
@@ -12,7 +13,10 @@ class List extends React.Component {
     super();
     this.state = {
       githubData: [],
+      nameSearch: null,
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -34,11 +38,16 @@ class List extends React.Component {
     }
   }
 
+  // handleSubmit = (event) => {
+  //   this.setState({ nameSearch: event.target.value });
+  //   browserHistory.push(`/repo:${event.target.name}`);
+  // };
+
   render() {
     const { githubData } = this.state;
     return (
       <div>
-        <form class="dark" action={`/repo`}>
+        <form class="dark" onSubmit={this.handleSubmit}>
           <label for="username">Abaixo temos os repositórios do github </label>
           <input type="text" id={"name"} />
           <input type="submit" value="Digite o repositorio desejado" />
