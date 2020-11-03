@@ -22,7 +22,7 @@ class Api {
       "/files",
       express.static(path.resolve(__dirname, "..", "tmp", "uploads"))
     );
-    // this.server.set("views", "../views");
+    // this.server.use("views", "../views");
 
     this.server.use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
