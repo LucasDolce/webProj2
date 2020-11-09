@@ -15,7 +15,7 @@ routes.get("/getUser", SessionController.getUser);
 routes.get("/login", SessionController.login);
 routes.get("/logout", SessionController.logout);
 routes.post("/uploadFile", upload.single("file"), FileController.store);
-routes.get("/getFile", FileController.get);
+routes.get("/getFiles", FileController.get);
 
 // routes.use(authMiddleware);
 routes.get("/find");

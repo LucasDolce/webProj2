@@ -8,28 +8,11 @@ class Files extends React.Component {
     this.state = {
       User: {},
       file: {},
+      files: [],
       UserId: cookie.load("id"),
       User_isAdm: cookie.load("isAdm"),
     };
   }
-
-  componentDidMount() {
-    this.initialize();
-  }
-
-  initialize = () => {
-    // try {
-    //   Axios.get("http://localhost:3333/getUser", {
-    //     params: {
-    //       id: this.state.UserId,
-    //     },
-    //   }).then((res) => this.setState({ User: res }));
-    // } catch (err) {
-    //   console.log(err);
-    // }
-    console.log(this.state.UserId);
-    console.log(this.state.User_isAdm);
-  };
 
   // onSubmit = (values) => {
   //   console.log(values);
@@ -47,7 +30,7 @@ class Files extends React.Component {
   render() {
     return (
       <div>
-        {this.state.User_isAdm == "true" ? (
+        {this.state.User_isAdm == "true" && this.state.UserId ? (
           <form
             class="dark"
             action="http://localhost:3333/uploadFile"
@@ -60,28 +43,36 @@ class Files extends React.Component {
             <input type="submit" value="Salvar arquivo" />
           </form>
         ) : null}
-        <form
-          class="dark"
-          action={"http://localhost:3333/getFile"}
-          method={"get"}
-          // onSubmit={this.onSubmit.bind(this)}
-        >
-          <label> Busca de arquivos -- </label>
-          <label for="username">nome</label>
-          <input type="text" name="name" />
-          <input type="submit" value="Buscar" />
-        </form>
-        {this.state.file && (
+        {this.state.UserId ? (
+          <form
+            class="dark"
+            action={"http://localhost:3333/getFiles"}
+            method={"get"}
+            // onSubmit={this.onSubmit.bind(this)}
+          >
+            <label> Busca de arquivos -- </label>
+            <input type="submit" value="Buscar" />
+          </form>
+        ) : (
           <div className="row">
             <div className="col-md-12">
-              <p>
-                {`nome: ${this.state.file.name}, 
-                id: ${this.state.file.id}, 
-                Path: ${this.state.file.path}`}
-              </p>
+              <p> O usuario precisa estar logado para executar pesquisas</p>
             </div>
           </div>
         )}
+        {this.state.files &&
+          this.state.UserId &&
+          this.state.files.map((file) => (
+            <div className="row">
+              <div className="col-md-12">
+                <p>
+                  {`nome: ${file.name}, 
+              id: ${file.id}, 
+              Path: ${file.path}`}
+                </p>
+              </div>
+            </div>
+          ))}
         <form
           class="dark"
           action={"http://localhost:3333/logout"}

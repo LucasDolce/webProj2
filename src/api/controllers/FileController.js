@@ -12,14 +12,15 @@ class FileController {
   }
 
   async get(req, res) {
-    const { name } = req.query;
-    const file = await File.findOne({
-      where: {
-        name,
-      },
-    });
+    // try {
+    //   const file = await File.findAll();
 
-    return res.json(file);
+    //   return file;
+
+    // } catch (err) {
+    //   return err;
+    // }
+    return res.json(await File.findAll());
   }
 }
 
