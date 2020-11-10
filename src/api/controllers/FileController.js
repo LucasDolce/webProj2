@@ -1,3 +1,4 @@
+import { where } from "sequelize";
 import File from "../models/File";
 
 class FileController {
@@ -12,15 +13,11 @@ class FileController {
   }
 
   async get(req, res) {
-    // try {
-    //   const file = await File.findAll();
-
-    //   return file;
-
-    // } catch (err) {
-    //   return err;
-    // }
     return res.json(await File.findAll());
+  }
+
+  async getFileByName(req, res) {
+    return res.json(await File.findOne({ where: { name: req.query.name } }));
   }
 }
 
