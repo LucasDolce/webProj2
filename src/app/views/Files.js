@@ -14,20 +14,20 @@ class Files extends React.Component {
     };
   }
 
-  // onSubmit = (values) => {
-  //   console.log(values);
-  //   try {
-  //     Axios.get("http://localhost:3333/getFile", {
-  //       params: {
-  //         name: values.name,
-  //       },
-  //     }).then((res) => this.setState({ File: res.data }));
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  onSubmit(event) {
+    try {
+      Axios.get("http://localhost:3333/getFiles").then((res) =>
+        this.setState({ files: res.data })
+      );
+      console.log(this.state.files);
+    } catch (err) {
+      return err;
+    }
+    event.preventDefault();
+  }
 
   render() {
+    console.log(this.state);
     return (
       <div>
         {this.state.User_isAdm == "true" && this.state.UserId ? (
@@ -44,12 +44,7 @@ class Files extends React.Component {
           </form>
         ) : null}
         {this.state.UserId ? (
-          <form
-            class="dark"
-            action={"http://localhost:3333/getFiles"}
-            method={"get"}
-            // onSubmit={this.onSubmit.bind(this)}
-          >
+          <form class="dark" onSubmit={this.onSubmit.bind(this)}>
             <label> Busca de arquivos -- </label>
             <input type="submit" value="Buscar" />
           </form>
