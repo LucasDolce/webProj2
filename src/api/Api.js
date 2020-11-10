@@ -25,7 +25,7 @@ class Api {
     // );
     this.server.use(
       "/files",
-      express.static(path.resolve(__dirname, "..", "tmp", "uploads"))
+      express.static(path.resolve(__dirname, "./", "tmp/uploads"))
     );
 
     this.server.use((req, res, next) => {
