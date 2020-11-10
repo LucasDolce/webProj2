@@ -64,6 +64,7 @@ class Files extends React.Component {
                   {`nome: ${file.name}, 
               id: ${file.id}, 
               Path: ${file.path}`}
+                  <img src={`http://localhost:3333/files/${file.path}`}></img>
                 </p>
               </div>
             </div>
